@@ -53,6 +53,7 @@ class agente:
 	self.miBBDD = tools.BBDD(self.BBDD_ADDR, self.BBDD_USER, self.BBDD_PASS)
 	connection = MySQLdb.connect(host = self.BBDD_ADDR, user = self.BBDD_USER, passwd = self.BBDD_PASS)
 	cursor = connection.cursor()
+	cursor.execute("SHOW DATABASES;")
 	databases = cursor.fetchall()
 	
 	if not('rmon' in str(databases)):
