@@ -8,6 +8,7 @@ import MySQLdb
 import tools
 import mib
 import signal
+import re
 
 
 class agente:
@@ -48,8 +49,29 @@ class agente:
 
         fd.close()
 
-        # Creamos la instancia de la mib
+        # Comprobamos que existe la base de datos
 	self.miBBDD = tools.BBDD(self.BBDD_ADDR, self.BBDD_USER, self.BBDD_PASS)
+	connection = MySQLdb.connect(host = self.BBDD_ADDR, user = self.BBDD_USER, passwd = self.BBDD_PASS)
+	cursor = connection.cursor()
+	databases = cursor.fetchall()
+	
+	if not('rmon' in str(databases)):
+	    statement = ""
+	    for line in open('/etc/rmon/mysql_config.sql'):
+		if re.match(r'--', line):
+		    continue
+		if not re.search(r'[^-;]+;', line):
+		    statement = statement + line
+		else:
+		    statement = statement + line
+		    try:
+			cursor.execute(statement)
+		    except:
+			print "incorrect statement"
+		    statement = ""
+		   
+	
+	# Creamos la instancia de la mib
         self.mib = mib.mib(self.N_FILTROS, self.miBBDD)
 	
 	# Configuramos la alarma
