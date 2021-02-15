@@ -530,7 +530,7 @@ class Add(scrolled.ScrolledPanel):
         sizer3.AddSpacer(parent.V, -1)
 
         # Creamos el formulario
-        form = wx.FlexGridSizer(len(filtros), 2, 9, 25)
+        form = wx.FlexGridSizer(0, 2, 9, 25)
 
         # Cada una de las conexiones existentes
         self.fila = []
@@ -883,7 +883,7 @@ class Show(scrolled.ScrolledPanel):
         self.sizer2.AddSpacer(parent.V, -1)
 
         # Creamos el formulario
-        self.form = wx.FlexGridSizer(len(filtros), 3, 9, 25)
+        self.form = wx.FlexGridSizer(0, 3, 9, 25)
 
         # Cada una de las conexiones existentes
         self.fila = []
@@ -967,6 +967,7 @@ class Show(scrolled.ScrolledPanel):
 
     def CargarFiltros(self):
         name = self.parent.conexion_seleccionada[0]
+        print("Conexion seleccionada: " + name)
         address = self.parent.conexion_seleccionada[1]
         community = self.parent.conexion_seleccionada[2]
         version = self.parent.conexion_seleccionada[3]

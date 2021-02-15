@@ -15,6 +15,7 @@ RUN apt-get update
 RUN apt-get -y install apt-utils
 
 # Install dependencies for RMON gui
+RUN apt-get -y install snmp
 RUN apt-get -y install python
 RUN apt-get -y install python-pip
 RUN apt-get -y install python-wxgtk3.0
