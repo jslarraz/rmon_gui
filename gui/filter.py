@@ -29,8 +29,7 @@ class Create(scrolled.ScrolledPanel):
         self.lblOwner = wx.StaticText(self, label="Filter Owner:")
         self.editOwner = wx.TextCtrl(self, value="", size=(200,30))
         # Añadimos los objetos al formulario
-        inforForm.AddMany([self.lblName, self.lblOwner, \
-                             self.editName, self.editOwner])
+        inforForm.AddMany([self.lblName, self.lblOwner, self.editName, self.editOwner])
         self.inforSizer.Add(inforForm, 1, wx.EXPAND)
         
         # Ethernet
@@ -69,8 +68,7 @@ class Create(scrolled.ScrolledPanel):
         self.editIpType = wx.ComboBox(self, size=(200, 30), choices=ipType, style=wx.CB_DROPDOWN)
         self.Bind(wx.EVT_COMBOBOX, self.IpType, self.editIpType)
         # Añadimos los objetos al formulario
-        ipForm.AddMany([self.lblSrcIpAddr, self.lblDstIpAddr, self.lblIpType, \
-                             self.editSrcIpAddr, self.editDstIpAddr, self.editIpType])
+        ipForm.AddMany([self.lblSrcIpAddr, self.lblDstIpAddr, self.lblIpType, self.editSrcIpAddr, self.editDstIpAddr, self.editIpType])
         self.ipSizer.Add(ipForm, 1, wx.EXPAND)
 
         # TCP
@@ -84,8 +82,7 @@ class Create(scrolled.ScrolledPanel):
         self.lblDstPort = wx.StaticText(self, label="DST Port:")
         self.editDstPort = wx.TextCtrl(self, value="*", size=(200,30))
         # Añadimos los objetos al formulario
-        tcpForm.AddMany([self.lblSrcPort, self.lblDstPort, \
-                             self.editSrcPort, self.editDstPort])
+        tcpForm.AddMany([self.lblSrcPort, self.lblDstPort, self.editSrcPort, self.editDstPort])
         self.tcpSizer.Add(tcpForm, 1, wx.EXPAND)
 
         # ICMP
@@ -99,8 +96,7 @@ class Create(scrolled.ScrolledPanel):
         self.lblIcmpCode = wx.StaticText(self, label="ICMP Code:")
         self.editIcmpCode = wx.TextCtrl(self, value="*", size=(200,30))
         # Añadimos los objetos al formulario
-        icmpForm.AddMany([self.lblIcmpType, self.lblIcmpCode, \
-                             self.editIcmpType, self.editIcmpCode])
+        icmpForm.AddMany([self.lblIcmpType, self.lblIcmpCode, self.editIcmpType, self.editIcmpCode])
         self.icmpSizer.Add(icmpForm, 1, wx.EXPAND)
 
         ## Botones
@@ -272,8 +268,7 @@ class Delete(scrolled.ScrolledPanel):
         self.lblOwner = wx.StaticText(self, label="Filter Owner:")
         self.editOwner = wx.StaticText(self, label="", size=(200,30))
         # Añadimos los objetos al formulario
-        inforForm.AddMany([self.lblName, self.lblOwner, \
-                             self.editName, self.editOwner])
+        inforForm.AddMany([self.lblName, self.lblOwner, self.editName, self.editOwner])
         self.inforSizer.Add(inforForm, 1, wx.EXPAND)
         
         # Ethernet
@@ -290,8 +285,7 @@ class Delete(scrolled.ScrolledPanel):
         self.lblEtherType = wx.StaticText(self, label="Type:")
         self.editEtherType = wx.StaticText(self, label="", size=(200,30))
         # Añadimos los objetos al formulario
-        etherForm.AddMany([self.lblSrcMacAddr, self.lblDstMacAddr, self.lblEtherType, \
-                             self.editSrcMacAddr, self.editDstMacAddr, self.editEtherType])
+        etherForm.AddMany([self.lblSrcMacAddr, self.lblDstMacAddr, self.lblEtherType, self.editSrcMacAddr, self.editDstMacAddr, self.editEtherType])
         self.etherSizer.Add(etherForm, 1, wx.EXPAND)
 
         # IP
@@ -308,8 +302,7 @@ class Delete(scrolled.ScrolledPanel):
         self.lblIpType = wx.StaticText(self, label="Type:")
         self.editIpType = wx.StaticText(self, label="", size=(200,30))
         # Añadimos los objetos al formulario
-        ipForm.AddMany([self.lblSrcIpAddr, self.lblDstIpAddr, self.lblIpType, \
-                             self.editSrcIpAddr, self.editDstIpAddr, self.editIpType])
+        ipForm.AddMany([self.lblSrcIpAddr, self.lblDstIpAddr, self.lblIpType, self.editSrcIpAddr, self.editDstIpAddr, self.editIpType])
         self.ipSizer.Add(ipForm, 1, wx.EXPAND)
 
         # TCP
@@ -323,8 +316,7 @@ class Delete(scrolled.ScrolledPanel):
         self.lblDstPort = wx.StaticText(self, label="DST Port:")
         self.editDstPort = wx.StaticText(self, label="", size=(200,30))
         # Añadimos los objetos al formulario
-        tcpForm.AddMany([self.lblSrcPort, self.lblDstPort, \
-                             self.editSrcPort, self.editDstPort])
+        tcpForm.AddMany([self.lblSrcPort, self.lblDstPort, self.editSrcPort, self.editDstPort])
         self.tcpSizer.Add(tcpForm, 1, wx.EXPAND)
 
         # ICMP
@@ -338,8 +330,7 @@ class Delete(scrolled.ScrolledPanel):
         self.lblIcmpCode = wx.StaticText(self, label="ICMP Code:")
         self.editIcmpCode = wx.StaticText(self, label="", size=(200,30))
         # Añadimos los objetos al formulario
-        icmpForm.AddMany([self.lblIcmpType, self.lblIcmpCode, \
-                             self.editIcmpType, self.editIcmpCode])
+        icmpForm.AddMany([self.lblIcmpType, self.lblIcmpCode, self.editIcmpType, self.editIcmpCode])
         self.icmpSizer.Add(icmpForm, 1, wx.EXPAND)
 
 
@@ -591,61 +582,61 @@ class Add(scrolled.ScrolledPanel):
         community = self.parent.conexion_seleccionada[2]
         version = self.parent.conexion_seleccionada[3]
         oid_interface = self.interfaces[self.editInterface.GetValue()]
-        print oid_interface
+        print(oid_interface)
         indice = self.BuscaIndice()
 
-	# Grupo filter
-	# Primero creo el filtro
-	# Creo la entrada con filterStatus
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.11." + indice, "i", "2"])
-	# Le indico el propietario con filterOwner
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.10." + indice, "s", owner])
-	# Le indico a que canal pertenece con filterChannelIndex
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.2." + indice, "i", indice])
-	# Le indico el offset del paquete con filterPktDataOffset 14 de ethernet
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.3." + indice, "i", "0" ])
-	# Le indico los datos que me interesan
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.4." + indice, "x", data ])
-	# Le indico la mascara de los datos con filterPktDataMask
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.5." + indice, "x", dataMask ])
-	# Le indico la mascara de los datos con filterPktDataNotMask
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.6." + indice, "x", dataNotMask ])
-	# Le indico el estado que me interesan
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.7." + indice, "i", "0"])
-	# Le indico la mascara de los datos con filterPktDataMask
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.8." + indice, "i", "7"])
-	# Le indico la mascara de los datos con filterPktDataNotMask
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.9." + indice, "i", "0"])
-	# Activo la entrada con filterStatus
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.11." + indice, "i", "1"])
-	
-	# Ahora tengo que crear el canal
-	# Creo la entrada con channelStatus
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.12." + indice, "i", "2"])
-	# Le indico el propietario con channelOwner
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.11." + indice, "s", owner])
-	# Le doy una descriptcion textual
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.10." + indice, "s", description ])
-	# Controlo el interfaz por el que filtro con channelIfIndex
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.2." + indice, "i", oid_interface])
-	# Controlo la accion asociada con este canal con channelAcceptType
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.3." + indice, "i", "1"])
-	# Controlo si el canal esta activado o no con channelDataControl
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.4." + indice, "i", "1"])
-	# Controla el evento que se va a hacer que el canal se active, en caso de no
-	# estarlo (0 es que no hay)
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.5." + indice, "i", "0"])
-	# Controla el evento que se va a hacer que el canal se desactive, en caso de no
-	# estarlo (0 es que no hay)
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.6." + indice, "i", "0"])
-	# Controla el evento que se va a disparar el canal, en caso de no
-	# estarlo (0 es que no hay)
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.7." + indice, "i", "0"])
-	# Controla la forma en que se dispara eventos
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.8." + indice, "i", "2"])
-	# Activo la entrada con channelStatus
-	subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.12." + indice, "i", "1"])
-	
+        # Grupo filter
+        # Primero creo el filtro
+        # Creo la entrada con filterStatus
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.11." + indice, "i", "2"])
+        # Le indico el propietario con filterOwner
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.10." + indice, "s", owner])
+        # Le indico a que canal pertenece con filterChannelIndex
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.2." + indice, "i", indice])
+        # Le indico el offset del paquete con filterPktDataOffset 14 de ethernet
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.3." + indice, "i", "0" ])
+        # Le indico los datos que me interesan
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.4." + indice, "x", data ])
+        # Le indico la mascara de los datos con filterPktDataMask
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.5." + indice, "x", dataMask ])
+        # Le indico la mascara de los datos con filterPktDataNotMask
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.6." + indice, "x", dataNotMask ])
+        # Le indico el estado que me interesan
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.7." + indice, "i", "0"])
+        # Le indico la mascara de los datos con filterPktDataMask
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.8." + indice, "i", "7"])
+        # Le indico la mascara de los datos con filterPktDataNotMask
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.9." + indice, "i", "0"])
+        # Activo la entrada con filterStatus
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.1.1.11." + indice, "i", "1"])
+
+        # Ahora tengo que crear el canal
+        # Creo la entrada con channelStatus
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.12." + indice, "i", "2"])
+        # Le indico el propietario con channelOwner
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.11." + indice, "s", owner])
+        # Le doy una descriptcion textual
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.10." + indice, "s", description ])
+        # Controlo el interfaz por el que filtro con channelIfIndex
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.2." + indice, "i", oid_interface])
+        # Controlo la accion asociada con este canal con channelAcceptType
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.3." + indice, "i", "1"])
+        # Controlo si el canal esta activado o no con channelDataControl
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.4." + indice, "i", "1"])
+        # Controla el evento que se va a hacer que el canal se active, en caso de no
+        # estarlo (0 es que no hay)
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.5." + indice, "i", "0"])
+        # Controla el evento que se va a hacer que el canal se desactive, en caso de no
+        # estarlo (0 es que no hay)
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.6." + indice, "i", "0"])
+        # Controla el evento que se va a disparar el canal, en caso de no
+        # estarlo (0 es que no hay)
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.7." + indice, "i", "0"])
+        # Controla la forma en que se dispara eventos
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.8." + indice, "i", "2"])
+        # Activo la entrada con channelStatus
+        subprocess.call(["snmpset", "-v", version, "-c", community, ip_addr, "1.3.6.1.2.1.16.7.2.1.12." + indice, "i", "1"])
+
 
 
     def BuscaIndice(self):
