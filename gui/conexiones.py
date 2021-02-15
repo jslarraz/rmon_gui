@@ -252,7 +252,7 @@ class Select(scrolled.ScrolledPanel):
         sizer.AddSpacer(parent.H, -1)
 
         # Creamos el formulario
-        form = wx.FlexGridSizer(len(conexiones), 1, 9, 25)
+        form = wx.FlexGridSizer(0, 1, 9, 25)
         form.AddSpacer(parent.V, -1)
 
         # Cada una de las conexiones existentes

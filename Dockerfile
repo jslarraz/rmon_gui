@@ -21,7 +21,8 @@ RUN apt-get -y install python-wxgtk3.0
 
 # Copy files
 ADD . /tmp
+WORKDIR /tmp/gui
 
 ENV DISPLAY 127.0.0.1:0.0
-CMD ["python", "/tmp/gui/gui.py"]
+CMD ["python", "gui.py"]
 
